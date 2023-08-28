@@ -15,7 +15,7 @@ async function getUserInfo(){
 
 // get the city name
 async function getCity(inputCity ){
-    var apiResponse = await fetch(`http://api.weatherapi.com/v1/search.json?key=8dc658786a1749fd9a2182830232708&q=${inputCity}`);
+    var apiResponse = await fetch(`https://api.weatherapi.com/v1/search.json?key=8dc658786a1749fd9a2182830232708&q=${inputCity}`);
     var apiData = await apiResponse.json();
     console.log("**********");
     console.log(apiData);
@@ -27,7 +27,7 @@ async function getCity(inputCity ){
 
 // get the city info
 async function getInfo(cityName){
-    var apiRes = await fetch(`http://api.weatherapi.com/v1/current.json?key=8dc658786a1749fd9a2182830232708&q=${cityName}`);
+    var apiRes = await fetch(`https://api.weatherapi.com/v1/current.json?key=8dc658786a1749fd9a2182830232708&q=${cityName}`);
     var apiInfo = await apiRes.json();
     
     fillFirstCard(apiInfo);
@@ -86,7 +86,7 @@ function fillFirstCard(cityInfo){
     }
 // fill sec and 3rd cards
 async function fillSecondAndThirdCards(code){
-    var forecastResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=8dc658786a1749fd9a2182830232708&q=${code}&days=7`);
+    var forecastResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=8dc658786a1749fd9a2182830232708&q=${code}&days=7`);
     var forecastData = await forecastResponse.json();
    document.querySelector(".min2").innerHTML= forecastData.forecast.forecastday[2].day.mintemp_c;
    document.querySelector(".max2").innerHTML= forecastData.forecast.forecastday[2].day.maxtemp_c;
